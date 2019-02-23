@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Animation Task</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-image: radial-gradient(circle, rgb(9, 0, 131), rgb(2, 80, 248));
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .object {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .object.a {
+            background-color: rgba(255, 255, 255, .1);
+            background-image:  radial-gradient(circle, rgba(51,51,51,.8), rgba(153,153,153,.7));
+            box-shadow: 0 0 20px #000;
+            bottom: -100px;
+            left: 10px;
+            z-index: -10;
+            animation-name: moon;
+            animation-duration: 60s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+        @keyframes moon {
+            0% {
+            }
+            100% {
+                transform: translate(60px, -900px);
+            }
+        }
+        .object.b {
+            width: 2000px;
+            background-color: saddlebrown;
+            top: 84vh;
+        }
+        .object.c {
+            width: 50px;
+            height: 50px;
+            background-image: radial-gradient(circle, red, blue);
+            box-shadow: 0 0 20px rgba(51,51,51,.5);
+            left: -10vw;
+            top: 120vh;
+            z-index: -15;
+            opacity: 0;
+            animation-name: planetX;
+            animation-duration: 70s; 
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+        }
+        @keyframes planetX {
+            0% {}
+            20%{
+                top: 80vh;
+                left: 10vw;
+                opacity: .5;
+            }
+            40% {
+                top: 60vh;
+                left: 40vw;
+                opacity: .75;
+            }
+            60%{
+                top: 45vh;
+                left: 60vw;
+                opacity: 1;
+            }
+            80%{
+                top: 55vh;
+                left: 80vw;
+            }
+            100% {
+                top: 70vh;
+                left: 110vw;
+                opacity: 1;
+            }
+        }
+        .object.s {
+            position: absolute;
+            top: -200px;
+            right: 0px;
+            background-image: radial-gradient(circle, orange, yellow);
+            transform: scale(3);
+            animation-name: sun;
+            animation-duration: 20s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+        }
+        @keyframes sun {
+            0% {
+            }
+            100% {
+                background-color: rgba(250, 89, 14, 0.6);
+                top: 102vh;
+                right: -400px;
+            }
+        }
+        .piramid {
+            width: 120px;
+            height: 120px;
+            background-color: saddlebrown;
+            margin: 10px;
+            position: absolute;
+            transform: rotate(32deg) skewY(25deg);
+            z-index: -1;
+        }
+        .piramid.a{
+            top: 75vh;
+            left: 250px;
+        }
+        .piramid.b{
+            top: 70vh;
+            left: 360px;
+            transform: scale(1.4) rotate(32deg) skewY(25deg);
+        }
+        .piramid.c{
+            top: 75vh;
+            left: 500px;
+        }
+        .overlay {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            background-color: black;
+            opacity: 0;
+            animation-name: overlay, overlayend;
+            animation-duration: 20s, 5s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+            animation-delay: 0s, 40s;
+        }
+        @keyframes overlay {
+            0%{}
+            100%{
+                opacity: .7;
+            }
+        }
+        @keyframes overlayend {
+            0% {
+                opacity: .7;
+            }
+            100% {
+                opacity: .9;
+            }
+        }
+        .stars {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            /* z-index: -1000; */
+        }
+        .star {
+            width: 1px;
+            height: 1px;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 0 7px yellow;
+        }
+        .orion .star.a {
+            top: 300px;
+            right: 500px;
+        }
+        .orion .star.b {
+            top: 297px;
+            right: 490px;
+        }
+        .orion .star.c {
+            top: 292px;
+            right: 480px;
+        }
+        .orion .star.d {
+            top: 240px;
+            right: 470px;
+        }
+        .orion .star.e {
+            width: 2px;
+            height: 2px;
+            top: 238px;
+            right: 515px;
+        }
+        .orion .star.f {
+            top: 224px;
+            right: 488px;            
+        }
+        .orion .star.g {
+            top: 350px;
+            right: 515px;
+        }
+        .orion .star.h {
+            top: 340px;
+            right: 455px;
+        }
+        .orion .star.i {
+            top: 237px;
+            right: 410px;
+        }
+        .orion .star.j {
+            top: 225px;
+            right: 413px;
+        }
+        .orion .star.k {
+            top: 213px;
+            right: 421px;
+        }
+        .orion .star.l {
+            top: 247px;
+            right: 411px;
+        }
+        .orion .star.m {
+            top: 265px;
+            right: 414px;
+        }
+        .orion .star.n {
+            top: 271px;
+            right: 419px;
+        }
+        .orion .star.o {
+            top: 224px;
+            right: 525px;
+        }
+        .orion .star.p {
+            top: 195px;
+            right: 528px;
+        }
+        .orion .star.q {
+            top: 196px;
+            right: 533px;
+        }
+        .orion .star.r {
+            top: 168px;
+            right: 527px;
+        }
+        .orion, .canicula, .gemini {
+            opacity: 0;
+            animation-name: stars;
+            animation-duration: 200s;
+            animation-fill-mode: forwards;
+            transform: scale(1.4) translateY(-200px);
+        }
+        @keyframes stars{
+            0%{
+            }
+            30%{
+                opacity: 1;
+            }
+            100%{ 
+                transform: translateX(1000px);
+                opacity: 1;
+            }
+        }
+        .canicula .star.a {
+            top: 300px;
+            right: 700px;
+        }
+        .canicula .star.b {
+            top: 290px;
+            right: 720px;
+        }
+        .canicula .star.c {
+            top: 305px;
+            right: 725px;
+        }
+        .canicula .star.d {
+            width: 2px;
+            height: 2px;
+            top: 317px;
+            right: 713px;
+        }
+        .canicula .star.e {
+            top: 335px;
+            right: 715px;
+        }
+        .canicula .star.f {
+            top: 350px;
+            right: 700px;            
+        }
+        .canicula .star.g {
+            top: 356px;
+            right: 728px;
+        }
+        .canicula .star.h {
+            top: 335px;
+            right: 750px;
+        }
+        .canicula .star.i {
+            top: 320px;
+            right: 756px;
+        }
+        .canicula .star.j {
+            top: 322px;
+            right: 774px;
+        }
+        .canicula .star.k {
+            top: 339px;
+            right: 777px;
+        }
+        .canicula .star.l {
+            width: 2px;
+            height: 2px;
+            top: 348px;
+            right: 778px;
+        }
+        .canicula .star.m {
+            top: 365px;
+            right: 790px;
+        }
+        .canicula .star.n {
+            top: 372px;
+            right: 764px;
+        }
+        .canicula .star.o {
+            top: 318px;
+            right: 780px;
+        }
+        .canicula .star.p {
+            top: 317px;
+            right: 795px;
+        }
+
+        .gemini .star.a {
+            width: 2px;
+            height: 2px;
+            top: 185px;
+            left: 350px;
+        }
+        .gemini .star.b {
+            width: 2px;
+            height: 2px;
+            top: 172px;
+            left: 380px;
+        }
+        .gemini .star.c {
+            top: 198px;
+            left: 353px;
+        }
+        .gemini .star.d {
+            top: 203px;
+            left: 395px;
+        }
+        .gemini .star.e {
+            top: 202px;
+            left: 330px;
+        }
+        .gemini .star.f {
+            top: 198px;
+            left: 428px;
+        }
+        .gemini .star.g {
+            top: 204px;
+            left: 370px;
+        }
+        .gemini .star.h {
+            top: 245px;
+            left: 350px;
+        }
+        .gemini .star.i {
+            top: 260px;
+            left: 400px;
+        }
+        .gemini .star.j {
+            top: 265px;
+            left: 328px;
+        }
+        .gemini .star.k {
+            top: 263px;
+            left: 363px;
+        }
+        .gemini .star.l {
+            top: 300px;
+            left: 342px;
+        }
+        .gemini .star.m {
+            top: 302px;
+            left: 368px;
+        }
+        .gemini .star.n {
+            top: 300px;
+            left: 394px;
+        }
+        .gemini .star.o {
+            top: 296px;
+            left: 420px;
+        }
+        .gemini .star.p {
+            top: 306px;
+            left: 430px;
+        }
+        .gemini .star.q {
+            top: 313px;
+            left: 444px;
+        }
+        .ship img {
+            width: 130px;
+            height: auto;
+            position: absolute;
+            top: 82vh;
+            left: 150px;
+            animation-name: ship;
+            animation-duration: 5s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+            animation-delay: 15s;
+        }
+        @keyframes ship {
+            0% {
+            }
+            30% {
+                transform: translate(10px, -200px);
+            }
+            50% {
+                transform: translate(50px, -230px);
+            }
+            100% {
+                transform: translate(550px, -200px) rotate(15deg);
+            }
+        }
+        @keyframes ship2 {
+            0% {
+                transform: translate(550px, -200px) rotate(-12deg);
+            }
+            100% {
+                transform: translate(1300px, -210px);
+            }
+        }
+        .laser {
+            width: 7px;
+            height: 2px;
+            position: absolute;
+            background-color: red;
+            opacity: 0;
+            transform: rotate(30deg);
+        }
+        .laser.a, .laser.c {
+            top: 58vh;
+            right: 45vw;
+        }
+        .laser.b {
+            top: 55vh;
+            right: 40vw;
+        }
+        @keyframes laserA {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(20vw, 15vh);
+                opacity: 0;
+            }
+        }
+
+        .atat img{
+            position: absolute;
+            width: 130px;
+            height: auto;
+            top: 75vh;
+            right: -130px;
+            animation-name: atat;
+            animation-duration: 8s; /* 8 */
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+            animation-delay: 13s; /* 13 */
+        }
+        @keyframes atat{
+            0% {}
+            70% {
+                transform: translateX(-300px);
+            }
+            90% {
+                transform: translateX(-300px);
+            }
+            100% {
+                transform: translateX(-300px) rotateX(75deg);
+            }
+        }
+        @keyframes atatEnd {
+            0% {}
+            100% {
+                opacity: 0;
+            }
+        }
+        .flame img {
+            width: 130px;
+            height: auto;
+            position: absolute;
+            top: 66vh;
+            right: 160px;
+            opacity: 0;
+        }
+        @keyframes flame {
+            0%{}
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="object s"></div>
+        <div class="object a"></div>
+        <div class="object b"></div>
+        <div class="object c"></div>
+        <div class="piramid a"></div>
+        <div class="piramid b"></div>
+        <div class="piramid c"></div>
+    </div>
+    <div class="overlay"></div>
+    <div class="stars">
+        <div class="orion">
+            <div class="star a"></div>
+            <div class="star b"></div>
+            <div class="star c"></div>
+            <div class="star d"></div>
+            <div class="star e"></div>
+            <div class="star f"></div>
+            <div class="star g"></div>
+            <div class="star h"></div>
+            <div class="star i"></div>
+            <div class="star j"></div>
+            <div class="star k"></div>
+            <div class="star l"></div>
+            <div class="star m"></div>
+            <div class="star n"></div>
+            <div class="star o"></div>
+            <div class="star p"></div>
+            <div class="star q"></div>
+            <div class="star r"></div>
+        </div>
+        <div class="canicula">
+            <div class="star a"></div>
+            <div class="star b"></div>
+            <div class="star c"></div>
+            <div class="star d"></div>
+            <div class="star e"></div>
+            <div class="star f"></div>
+            <div class="star g"></div>
+            <div class="star h"></div>
+            <div class="star i"></div>
+            <div class="star j"></div>
+            <div class="star k"></div>
+            <div class="star l"></div>
+            <div class="star m"></div>
+            <div class="star n"></div>
+            <div class="star o"></div>
+            <div class="star p"></div>
+        </div>
+        <div class="gemini">
+            <div class="star a"></div>
+            <div class="star b"></div>
+            <div class="star c"></div>
+            <div class="star d"></div>
+            <div class="star e"></div>
+            <div class="star f"></div>
+            <div class="star g"></div>
+            <div class="star h"></div>
+            <div class="star i"></div>
+            <div class="star j"></div>
+            <div class="star k"></div>
+            <div class="star l"></div>
+            <div class="star m"></div>
+            <div class="star n"></div>
+            <div class="star o"></div>
+            <div class="star p"></div>
+            <div class="star q"></div>
+        </div>
+    </div>
+    <div class="ship">
+        <img src="images/11-ship.png" id="ship">
+    </div>
+    <div class="atat">
+        <img src="images/11-at-at.png" id="atat">
+    </div>
+    <div class="flame">
+        <img src="images/11-fire.gif" id="flame">
+    </div>
+    <div class="lasers">
+        <div class="laser a" id="laserA"></div>
+        <div class="laser b" id="laserB"></div>
+        <div class="laser c" id="laserC"></div>
+    </div>
+    <script>
+        const $ship = document.getElementById('ship')
+        const $laserA = document.getElementById('laserA')
+        const $laserB = document.getElementById('laserB')
+        const $laserC = document.getElementById('laserC')
+
+        $ship.addEventListener('animationend', () => {
+            $laserA.style.animationName = 'laserA'
+            $laserB.style.animationName = 'laserA'
+            $laserC.style.animationName = 'laserA'
+            $laserA.style.animationDuration = '1s'
+            $laserA.style.animationFillMode = 'forwards'
+            $laserB.style.animationDuration = '1s'
+            $laserB.style.animationFillMode = 'forwards'
+            $laserB.style.animationDelay = '.5s'
+            $laserC.style.animationDuration = '1s'
+            $laserC.style.animationFillMode = 'forwards'
+            $laserC.style.animationDelay = '1s'
+            $ship.style.transform = 'translate(550px, -200px) rotate(12deg)';
+            $ship.style.animationName = 'ship2'
+            $ship.style.animationDuration = '2s'
+            $ship.style.animationFillMode = 'forwards'
+            $ship.style.animationDelay = '1.5s'
+        })
+
+        const $flame = document.getElementById('flame')
+        const $atat = document.getElementById('atat')
+        $atat.addEventListener('animationend', (event) => {
+            $flame.style.animationName = 'flame'
+            $flame.style.animationDuration = '1s'
+            $flame.style.animationFillMode = 'forwards'
+            $atat.style.animationName = 'atatEnd'
+            $atat.style.transform = 'translateX(-300px) rotateX(75deg)'
+            $atat.style.animationDelay = '3s'
+            $atat.style.animationDuration = '3s'
+            $atat.style.animationFillMode = 'forwards'
+        })
+
+        function deleteWHFooter(){
+	    let node = document.querySelector('[title="Hosted on free web hosting 000webhost.com. Host your own website for FREE."]');
+	        node.style='display: none'
+        }
+        setTimeout(deleteWHFooter, 10)
+    </script>
+</body>
+</html>
